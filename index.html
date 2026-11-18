@@ -1,0 +1,1919 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+    <title>Eternal Romance — Ine Febrina Tauri &amp; Raihan Rasyid</title>
+    <meta name="description" content="The Wedding of Ine Febrina Tauri & Raihan Rasyid — Sunday, 22 November 2026">
+
+    <!-- Google Fonts: Cormorant Garamond, Playfair Display, Montserrat & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Inter:wght@300;400;500&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* ==========================================================================
+           01. CSS VARIABLES & LUXURY EDITORIAL COLOR SYSTEM
+           ========================================================================== */
+        :root {
+            --color-primary: #806B50;      /* Warm Umber */
+            --color-secondary: #3E352D;    /* Deep Espresso */
+            --color-wine: #947D5F;         /* Warm Taupe Accent */
+            --color-background: #F7F2E8;   /* Warm Cream Ivory */
+            --color-accent: #DCC6A0;       /* Champagne Sand */
+            --color-soft-gold: #B69A72;    /* Muted Antique Gold */
+            --color-text: #3E352D;         /* Deep Espresso Text */
+
+            --font-serif: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+            --font-sans: 'Montserrat', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --ease-luxury: cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        @property --border-glow-angle {
+            syntax: "<angle>";
+            initial-value: 0deg;
+            inherits: false;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+            background-color: var(--color-secondary);
+        }
+
+        body {
+            background-color: var(--color-background);
+            color: var(--color-text);
+            font-family: var(--font-sans);
+            font-weight: 400;
+            line-height: 1.75;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body.is-locked {
+            overflow: hidden;
+            height: 100vh;
+            height: 100dvh;
+        }
+
+        ::selection {
+            background-color: var(--color-primary);
+            color: var(--color-background);
+        }
+
+        /* ==========================================================================
+           02. TYPOGRAPHY & EDITORIAL HELPERS
+           ========================================================================== */
+        .font-serif {
+            font-family: var(--font-serif);
+        }
+
+        .font-sans {
+            font-family: var(--font-sans);
+        }
+
+        .editorial-kicker {
+            font-family: var(--font-sans);
+            font-size: 0.6875rem;
+            font-weight: 500;
+            letter-spacing: 0.34em;
+            text-transform: uppercase;
+        }
+
+        @media (min-width: 640px) {
+            .editorial-kicker {
+                font-size: 0.75rem;
+            }
+        }
+
+        /* Garis Ornamen Champagne Gold */
+        .gold-hairline {
+            width: 3.75rem;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--color-soft-gold), transparent);
+            margin: 0 auto;
+        }
+
+        .gold-divider-ornament {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.85rem;
+            margin: 1.5rem auto;
+        }
+
+        .gold-divider-ornament span.line {
+            display: block;
+            width: 3rem;
+            height: 1px;
+            background-color: var(--color-soft-gold);
+            opacity: 0.55;
+        }
+
+        .gold-divider-ornament span.diamond {
+            display: block;
+            width: 5px;
+            height: 5px;
+            border: 1px solid var(--color-soft-gold);
+            transform: rotate(45deg);
+        }
+
+        /* ==========================================================================
+           03. OPENING COVER — DEEP ESPRESSO FULLSCREEN
+           ========================================================================== */
+        #opening-cover {
+            position: fixed;
+            inset: 0;
+            z-index: 100;
+            height: 100vh;
+            height: 100dvh;
+            background:
+                radial-gradient(circle at 50% 25%, rgba(128, 107, 80, 0.45) 0%, transparent 60%),
+                radial-gradient(circle at 50% 85%, rgba(62, 53, 45, 0.75) 0%, transparent 65%),
+                linear-gradient(165deg, var(--color-secondary) 0%, #2B241E 55%, var(--color-secondary) 100%);
+            color: var(--color-background);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.25rem;
+            overflow: hidden;
+            transition:
+                opacity 1.1s var(--ease-luxury),
+                transform 1.2s var(--ease-luxury),
+                visibility 1.1s ease;
+        }
+
+        #opening-cover.is-hidden {
+            opacity: 0;
+            transform: translateY(-2.5%) scale(1.02);
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .cover-particle-canvas,
+        .closing-particle-canvas {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .cover-frame {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 34rem;
+            height: 100%;
+            max-height: 52rem;
+            border: 1px solid rgba(220, 198, 160, 0.35);
+            padding: 2.25rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            text-align: center;
+        }
+
+        .cover-frame::before {
+            content: "";
+            position: absolute;
+            inset: 0.45rem;
+            border: 1px solid rgba(220, 198, 160, 0.18);
+            pointer-events: none;
+        }
+
+        /* Aksen Sudut Editorial Minimalis */
+        .corner-accent {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            border-color: var(--color-accent);
+            opacity: 0.75;
+            pointer-events: none;
+        }
+        .corner-tl { top: -1px; left: -1px; border-top: 1.5px solid; border-left: 1.5px solid; }
+        .corner-tr { top: -1px; right: -1px; border-top: 1.5px solid; border-right: 1.5px solid; }
+        .corner-bl { bottom: -1px; left: -1px; border-bottom: 1.5px solid; border-left: 1.5px solid; }
+        .corner-br { bottom: -1px; right: -1px; border-bottom: 1.5px solid; border-right: 1.5px solid; }
+
+        .cover-names {
+            font-family: var(--font-serif);
+            font-weight: 500;
+            font-size: clamp(2.15rem, 6.8vw, 3.6rem);
+            line-height: 1.12;
+            letter-spacing: 0.04em;
+            color: var(--color-background);
+            text-transform: uppercase;
+        }
+
+        .cover-ampersand {
+            display: block;
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-weight: 400;
+            font-size: clamp(1.65rem, 4.5vw, 2.35rem);
+            color: var(--color-accent);
+            margin: 0.35rem 0;
+        }
+
+        .cover-guest-box {
+            width: 100%;
+            max-width: 22rem;
+            padding: 1.1rem 1.25rem;
+            border-top: 1px solid rgba(220, 198, 160, 0.28);
+            border-bottom: 1px solid rgba(220, 198, 160, 0.28);
+            background: rgba(62, 53, 45, 0.48);
+            backdrop-filter: blur(4px);
+            margin-bottom: 1.35rem;
+        }
+
+        .btn-open-invitation {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.65rem;
+            padding: 0.95rem 2.25rem;
+            background: transparent;
+            color: var(--color-accent);
+            border: 1px solid var(--color-accent);
+            font-family: var(--font-sans);
+            font-size: 0.72rem;
+            font-weight: 500;
+            letter-spacing: 0.28em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.45s var(--ease-luxury);
+            min-height: 46px;
+        }
+
+        .btn-open-invitation:hover,
+        .btn-open-invitation:focus-visible {
+            background-color: var(--color-accent);
+            color: var(--color-secondary);
+            box-shadow: 0 10px 30px rgba(220, 198, 160, 0.24);
+            transform: translateY(-2px);
+        }
+
+        .btn-open-invitation:active {
+            transform: scale(0.98);
+        }
+
+        /* ==========================================================================
+           04. HERO SECTION — CINEMATIC EDITORIAL PORTRAIT
+           ========================================================================== */
+        .hero-section {
+            position: relative;
+            min-height: 100vh;
+            min-height: 100dvh;
+            background: linear-gradient(180deg, var(--color-secondary) 0%, var(--color-primary) 55%, var(--color-background) 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 4.5rem 1.5rem 5rem;
+            text-align: center;
+        }
+
+        .hero-editorial-card {
+            width: 100%;
+            max-width: 64rem;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        @media (min-width: 900px) {
+            .hero-editorial-card {
+                grid-template-columns: 1.05fr 0.95fr;
+                gap: 4rem;
+                text-align: left;
+            }
+        }
+
+        @keyframes coupleBorderGlow {
+            0%, 100% {
+                border-color: rgba(220, 198, 160, 0.5);
+                box-shadow:
+                    0 0 16px rgba(220, 198, 160, 0.24),
+                    0 0 34px rgba(182, 154, 114, 0.16),
+                    inset 0 0 14px rgba(220, 198, 160, 0.18);
+            }
+            50% {
+                border-color: rgba(247, 242, 232, 0.92);
+                box-shadow:
+                    0 0 26px rgba(247, 242, 232, 0.52),
+                    0 0 54px rgba(220, 198, 160, 0.38),
+                    inset 0 0 22px rgba(247, 242, 232, 0.3);
+            }
+        }
+
+        @keyframes rotateBorderShimmer {
+            0% {
+                --border-glow-angle: 0deg;
+            }
+            100% {
+                --border-glow-angle: 360deg;
+            }
+        }
+
+        .hero-photo-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 24rem;
+            margin: 0 auto;
+            aspect-ratio: 3 / 4;
+            padding: 0.65rem;
+            border: 1px solid rgba(220, 198, 160, 0.55);
+            background: rgba(62, 53, 45, 0.38);
+            animation: coupleBorderGlow 2s ease-in-out infinite;
+        }
+
+        .hero-photo-wrapper::before {
+            content: "";
+            position: absolute;
+            inset: -2px;
+            padding: 2px;
+            background: conic-gradient(
+                from var(--border-glow-angle),
+                transparent 0%,
+                rgba(220, 198, 160, 0.12) 32%,
+                rgba(247, 242, 232, 0.9) 50%,
+                rgba(220, 198, 160, 0.12) 68%,
+                transparent 100%
+            );
+            -webkit-mask:
+                linear-gradient(#fff 0 0) content-box,
+                linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask:
+                linear-gradient(#fff 0 0) content-box,
+                linear-gradient(#fff 0 0);
+            mask-composite: exclude;
+            pointer-events: none;
+            opacity: 0.85;
+            animation: rotateBorderShimmer 7s linear infinite;
+        }
+
+        @media (min-width: 900px) {
+            .hero-photo-wrapper {
+                max-width: 27rem;
+            }
+        }
+
+        .hero-photo-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: var(--color-secondary);
+        }
+
+        .hero-photo-inner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+            transition: transform 1.6s var(--ease-luxury);
+        }
+
+        .hero-photo-wrapper:hover .hero-photo-inner img {
+            transform: scale(1.03);
+        }
+
+        .hero-cinematic-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                180deg,
+                rgba(62, 53, 45, 0.14) 0%,
+                rgba(62, 53, 45, 0.04) 55%,
+                rgba(62, 53, 45, 0.42) 100%
+            );
+            pointer-events: none;
+        }
+
+        .hero-couple-heading {
+            font-family: var(--font-serif);
+            font-weight: 500;
+            font-size: clamp(2.5rem, 6.5vw, 4.35rem);
+            line-height: 1.08;
+            color: var(--color-background);
+            letter-spacing: 0.01em;
+        }
+
+        @media (min-width: 900px) {
+            .hero-couple-heading {
+                color: var(--color-background);
+                text-shadow: 0 2px 24px rgba(62, 53, 45, 0.28);
+            }
+        }
+
+        /* ==========================================================================
+           05. EDITORIAL IVORY SECTIONS (OPENING, BRIDE & GROOM, EVENT, MESSAGE)
+           ========================================================================== */
+        .ivory-canvas {
+            background-color: var(--color-background);
+            color: var(--color-text);
+        }
+
+        .section-container {
+            width: 100%;
+            max-width: 62rem;
+            margin: 0 auto;
+            padding: 5.5rem 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .section-container {
+                padding: 7rem 2rem;
+            }
+        }
+
+        /* Bride & Groom Grid */
+        .couple-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2.5rem;
+            align-items: center;
+            margin-top: 3.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .couple-grid {
+                grid-template-columns: 1fr auto 1fr;
+                gap: 3rem;
+            }
+        }
+
+        .couple-editorial-panel {
+            position: relative;
+            padding: 2.75rem 1.75rem;
+            border: 1px solid rgba(182, 154, 114, 0.4);
+            background-color: rgba(255, 255, 255, 0.42);
+            text-align: center;
+        }
+
+        .couple-editorial-panel::before {
+            content: "";
+            position: absolute;
+            inset: 0.4rem;
+            border: 1px solid rgba(182, 154, 114, 0.18);
+            pointer-events: none;
+        }
+
+        .couple-person-name {
+            font-family: var(--font-serif);
+            font-size: clamp(2rem, 4.5vw, 2.75rem);
+            font-weight: 600;
+            color: var(--color-primary);
+            line-height: 1.18;
+            margin: 0.65rem 0 1.25rem;
+        }
+
+        /* ==========================================================================
+           06. COUNTDOWN — SAVE THE DATE (DEEP ESPRESSO)
+           ========================================================================== */
+        .countdown-section {
+            position: relative;
+            background:
+                radial-gradient(circle at 50% 0%, rgba(128, 107, 80, 0.42) 0%, transparent 65%),
+                linear-gradient(180deg, var(--color-secondary) 0%, var(--color-primary) 100%);
+            color: var(--color-background);
+            padding: 5.5rem 1.5rem;
+            text-align: center;
+        }
+
+        .countdown-boxes {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 0.65rem;
+            max-width: 34rem;
+            margin: 2.75rem auto 0;
+        }
+
+        @media (min-width: 640px) {
+            .countdown-boxes {
+                gap: 1.25rem;
+            }
+        }
+
+        .countdown-item {
+            position: relative;
+            padding: 1.35rem 0.5rem;
+            border: 1px solid rgba(220, 198, 160, 0.34);
+            background: rgba(62, 53, 45, 0.52);
+            backdrop-filter: blur(6px);
+        }
+
+        .countdown-number {
+            display: block;
+            font-family: var(--font-serif);
+            font-size: clamp(2rem, 6vw, 3.35rem);
+            font-weight: 500;
+            line-height: 1;
+            color: var(--color-accent);
+        }
+
+        .countdown-label {
+            display: block;
+            font-family: var(--font-sans);
+            font-size: 0.625rem;
+            font-weight: 500;
+            letter-spacing: 0.24em;
+            text-transform: uppercase;
+            color: rgba(247, 242, 232, 0.8);
+            margin-top: 0.65rem;
+        }
+
+        /* ==========================================================================
+           07. WEDDING EVENT — TIME & PLACE
+           ========================================================================== */
+        .event-editorial-card {
+            position: relative;
+            max-width: 48rem;
+            margin: 3rem auto 0;
+            border: 1px solid rgba(182, 154, 114, 0.45);
+            background: rgba(255, 255, 255, 0.46);
+            padding: 2.75rem 1.5rem;
+        }
+
+        @media (min-width: 640px) {
+            .event-editorial-card {
+                padding: 3.5rem 3rem;
+            }
+        }
+
+        .event-editorial-card::before {
+            content: "";
+            position: absolute;
+            inset: 0.45rem;
+            border: 1px solid rgba(182, 154, 114, 0.22);
+            pointer-events: none;
+        }
+
+        .event-details-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            text-align: center;
+        }
+
+        @media (min-width: 768px) {
+            .event-details-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1.5rem;
+            }
+        }
+
+        .event-icon-ring {
+            width: 2.85rem;
+            height: 2.85rem;
+            border-radius: 9999px;
+            border: 1px solid var(--color-soft-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            color: var(--color-primary);
+            background-color: var(--color-background);
+        }
+
+        .event-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 0.85rem;
+            max-width: 26rem;
+            margin: 2.75rem auto 0;
+        }
+
+        @media (min-width: 640px) {
+            .event-actions {
+                flex-direction: row;
+                max-width: 30rem;
+            }
+        }
+
+        .btn-burgundy {
+            flex: 1;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.55rem;
+            padding: 0.9rem 1.4rem;
+            background-color: var(--color-primary);
+            color: var(--color-background);
+            border: 1px solid var(--color-primary);
+            font-family: var(--font-sans);
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            text-decoration: none;
+            cursor: pointer;
+            min-height: 46px;
+            transition: all 0.35s var(--ease-luxury);
+        }
+
+        .btn-burgundy:hover {
+            background-color: var(--color-secondary);
+            border-color: var(--color-secondary);
+            transform: translateY(-1px);
+        }
+
+        .btn-outline-gold {
+            flex: 1;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.55rem;
+            padding: 0.9rem 1.4rem;
+            background-color: transparent;
+            color: var(--color-primary);
+            border: 1px solid var(--color-soft-gold);
+            font-family: var(--font-sans);
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            cursor: pointer;
+            min-height: 46px;
+            transition: all 0.35s var(--ease-luxury);
+        }
+
+        .btn-outline-gold:hover {
+            background-color: rgba(182, 154, 114, 0.15);
+            border-color: var(--color-primary);
+            transform: translateY(-1px);
+        }
+
+        /* ==========================================================================
+           08. WEDDING MESSAGE & CLOSING SECTION
+           ========================================================================== */
+        .message-section {
+            background-color: var(--color-background);
+            padding: 2rem 1.5rem 6.5rem;
+            text-align: center;
+        }
+
+        .message-quote-box {
+            max-width: 40rem;
+            margin: 0 auto;
+            padding: 2.5rem 1.5rem;
+            border-top: 1px solid rgba(182, 154, 114, 0.42);
+            border-bottom: 1px solid rgba(182, 154, 114, 0.42);
+        }
+
+        .closing-section {
+            position: relative;
+            background:
+                radial-gradient(circle at 50% 45%, rgba(128, 107, 80, 0.45) 0%, transparent 65%),
+                linear-gradient(180deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+            color: var(--color-background);
+            padding: 6rem 1.5rem calc(7.5rem + env(safe-area-inset-bottom, 0px));
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .closing-content {
+            position: relative;
+            z-index: 2;
+            max-width: 38rem;
+            margin: 0 auto;
+        }
+
+        /* ==========================================================================
+           09. FIXED BOTTOM NAVIGATION (ICON-ONLY, ESPRESSO GLASS, SAFE AREA)
+           ========================================================================== */
+        .bottom-nav-wrap {
+            position: fixed;
+            bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 80;
+            width: calc(100% - 2rem);
+            max-width: 21.5rem;
+            background: rgba(62, 53, 45, 0.9);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(220, 198, 160, 0.36);
+            border-radius: 9999px;
+            padding: 0.38rem 0.65rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 14px 36px rgba(38, 32, 27, 0.42);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.6s var(--ease-luxury), transform 0.6s var(--ease-luxury);
+        }
+
+        .bottom-nav-wrap.is-visible {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .nav-icon-item {
+            position: relative;
+            width: 44px;
+            height: 44px;
+            min-width: 44px;
+            min-height: 44px;
+            border-radius: 9999px;
+            border: none;
+            background: transparent;
+            color: rgba(247, 242, 232, 0.68);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s var(--ease-luxury);
+        }
+
+        .nav-icon-item:hover {
+            color: var(--color-accent);
+        }
+
+        .nav-icon-item.is-active {
+            color: var(--color-accent);
+            background: rgba(220, 198, 160, 0.16);
+        }
+
+        .nav-icon-item.is-active::after {
+            content: "";
+            position: absolute;
+            bottom: 5px;
+            width: 4px;
+            height: 4px;
+            border-radius: 9999px;
+            background-color: var(--color-accent);
+        }
+
+        /* Indikator Musik Aktif pada Ikon ke-5 */
+        @keyframes pulseGoldRing {
+            0% { box-shadow: 0 0 0 0 rgba(220, 198, 160, 0.45); }
+            70% { box-shadow: 0 0 0 8px rgba(220, 198, 160, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(220, 198, 160, 0); }
+        }
+
+        .nav-music-playing {
+            color: var(--color-accent) !important;
+            background: rgba(220, 198, 160, 0.18);
+            animation: pulseGoldRing 2.4s infinite;
+        }
+
+        /* ==========================================================================
+           10. SCROLL REVEAL & STAGGERED ENTRANCE ANIMATIONS
+           ========================================================================== */
+        .reveal-item {
+            opacity: 0;
+            transform: translateY(22px);
+            transition:
+                opacity 0.9s var(--ease-luxury),
+                transform 0.9s var(--ease-luxury);
+        }
+
+        .reveal-item.in-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .delay-100 { transition-delay: 0.1s; }
+        .delay-200 { transition-delay: 0.2s; }
+        .delay-300 { transition-delay: 0.3s; }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+            .reveal-item {
+                opacity: 1 !important;
+                transform: none !important;
+                transition: none !important;
+            }
+            #opening-cover {
+                transition: opacity 0.25s ease !important;
+            }
+            .nav-music-playing,
+            .hero-photo-wrapper,
+            .hero-photo-wrapper::before {
+                animation: none !important;
+            }
+            .hero-photo-wrapper {
+                box-shadow: 0 0 20px rgba(220, 198, 160, 0.35);
+            }
+        }
+
+        /* Toast Feedback */
+        .editorial-toast {
+            position: fixed;
+            top: 1.25rem;
+            left: 50%;
+            transform: translateX(-50%) translateY(-1rem);
+            z-index: 120;
+            background-color: var(--color-secondary);
+            color: var(--color-background);
+            border: 1px solid var(--color-accent);
+            padding: 0.65rem 1.35rem;
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.35s var(--ease-luxury);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.28);
+            white-space: nowrap;
+        }
+
+        .editorial-toast.is-shown {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+    </style>
+</head>
+<body class="is-locked">
+
+    <!-- ==========================================================================
+         PUSAT PENGATURAN DATA (weddingData)
+         Ubah semua informasi undangan cukup di bagian ini saja.
+         ========================================================================== -->
+    <script>
+        const weddingData = {
+            bride: {
+                name: "Ine Febrina Tauri",
+                father: "Taufik Hidayat",
+                mother: "Hendriana"
+            },
+
+            groom: {
+                name: "Raihan Rasyid",
+                father: "Alm. Satirih",
+                mother: "Munawaroh"
+            },
+
+            event: {
+                date: "2026-11-22",
+                displayDate: "Minggu, 22 November 2026",
+                startTime: "08:00",
+                endTime: "Selesai",
+                timezone: "Asia/Jakarta",
+                venue: "Aira",
+                address: "RT 03 RW 16, Jl. Batas Pradana Nomor 17",
+                mapsUrl: "https://maps.app.goo.gl/rEpfSNwgkfYYtYsC6?g_st=awb"
+            },
+
+            invitation: {
+                opening: "Assalamu'alaikum warahmatullahi wabarakatuh.",
+                message: "Tanpa mengurangi rasa hormat, kami bermaksud mengundang Bapak/Ibu/Saudara/i untuk menghadiri acara pernikahan kami.",
+                closing: "Wassalamu'alaikum warahmatullahi wabarakatuh.",
+                guestName: "Tamu Undangan"
+            },
+
+            media: {
+                // Ganti dengan path foto lokal Anda: "assets/images/couple.jpg"
+                couplePhoto: "https://i.imgur.com/i8ZvSHY.png",
+                // Ganti dengan path file musik lokal Anda: "assets/audio/music.mp3"
+                music: "https://mp3tourl.com/audio/1794971950883-1ee05046-4cc0-4943-b583-15be23e0f327.mp3"
+            },
+
+            theme: {
+                primary: "#806B50",
+                secondary: "#3E352D",
+                accent: "#DCC6A0",
+                background: "#F7F2E8",
+                text: "#3E352D"
+            },
+
+            settings: {
+                enableParticles: true,
+                enableMusic: true,
+                enableCountdown: true
+            }
+        };
+    </script>
+
+    <!-- ==========================================================================
+         03. OPENING COVER — FIRST IMPRESSION
+         ========================================================================== -->
+    <section id="opening-cover" aria-label="Halaman Pembuka Undangan">
+        <canvas id="cover-particles" class="cover-particle-canvas" aria-hidden="true"></canvas>
+
+        <div class="cover-frame">
+            <span class="corner-accent corner-tl" aria-hidden="true"></span>
+            <span class="corner-accent corner-tr" aria-hidden="true"></span>
+            <span class="corner-accent corner-bl" aria-hidden="true"></span>
+            <span class="corner-accent corner-br" aria-hidden="true"></span>
+
+            <!-- Atas Cover -->
+            <div>
+                <p class="editorial-kicker" style="color: var(--color-accent);">THE WEDDING OF</p>
+                <div class="gold-divider-ornament" style="margin: 0.95rem auto 0;">
+                    <span class="line"></span>
+                    <span class="diamond"></span>
+                    <span class="line"></span>
+                </div>
+            </div>
+
+            <!-- Tengah Cover: Nama Kedua Mempelai & Tanggal -->
+            <div>
+                <h1 class="cover-names">
+                    <span id="cover-bride-name" style="display: block;">INE FEBRINA TAURI</span>
+                    <span class="cover-ampersand">&amp;</span>
+                    <span id="cover-groom-name" style="display: block;">RAIHAN RASYID</span>
+                </h1>
+
+                <p id="cover-date-text" class="editorial-kicker" style="color: rgba(247, 242, 232, 0.85); margin-top: 1.5rem;">
+                    22 NOVEMBER 2026
+                </p>
+            </div>
+
+            <!-- Bawah Cover: Penerima Tamu & Tombol Open Invitation -->
+            <div style="width: 100%; display: flex; flex-direction: column; align-items: center;">
+                <div class="cover-guest-box">
+                    <p class="editorial-kicker" style="font-size: 0.625rem; color: var(--color-accent); margin-bottom: 0.35rem;">
+                        DEAR:
+                    </p>
+                    <p id="cover-guest-name" class="font-serif" style="font-size: 1.5rem; font-weight: 500; color: var(--color-background); line-height: 1.25; margin-bottom: 0.45rem; word-break: break-word;">
+                        Tamu Undangan
+                    </p>
+                    <p style="font-size: 0.72rem; color: rgba(247, 242, 232, 0.78); line-height: 1.5;">
+                        Kepada Yth.<br>Bapak/Ibu/Saudara/i
+                    </p>
+                </div>
+
+                <button id="btn-open-invitation" type="button" class="btn-open-invitation">
+                    <span>OPEN INVITATION</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Audio Latar (Tidak autoplay sebelum interaksi tombol) -->
+    <audio id="wedding-audio" loop preload="none"></audio>
+
+    <!-- ==========================================================================
+         KONTEN UTAMA UNDANGAN
+         ========================================================================== -->
+    <main id="main-content">
+
+        <!-- ======================================================================
+             04. HERO SECTION — THE COUPLE
+             ====================================================================== -->
+        <section id="sec-hero" class="hero-section">
+            <div class="hero-editorial-card">
+                
+                <!-- Satu Foto Utama Pasangan dengan Bingkai Editorial Minimalis -->
+                <div class="hero-photo-wrapper reveal-item">
+                    <div class="hero-photo-inner">
+                        <img id="hero-couple-img"
+                             src=""
+                             alt="Foto Pasangan Ine Febrina Tauri & Raihan Rasyid"
+                             onerror="this.onerror=null; this.src='https://placehold.co/900x1200/3E352D/DCC6A0?text=Ine+%26+Raihan';">
+                        <div class="hero-cinematic-overlay"></div>
+                    </div>
+                </div>
+
+                <!-- Tipografi Editorial Pasangan -->
+                <div class="reveal-item delay-100">
+                    <p class="editorial-kicker" style="color: var(--color-accent); margin-bottom: 1rem;">
+                        THE WEDDING OF
+                    </p>
+
+                    <h2 class="hero-couple-heading">
+                        <span id="hero-bride-name" style="display: block;">Ine Febrina Tauri</span>
+                        <span class="font-serif" style="display: block; font-style: italic; font-weight: 400; font-size: 0.65em; color: var(--color-accent); margin: 0.25rem 0;">&amp;</span>
+                        <span id="hero-groom-name" style="display: block;">Raihan Rasyid</span>
+                    </h2>
+
+                    <div style="width: 3.5rem; height: 1px; background-color: var(--color-accent); opacity: 0.7; margin: 1.75rem auto 1.5rem;" class="hero-line"></div>
+
+                    <p id="hero-date-label" class="editorial-kicker" style="color: rgba(247, 242, 232, 0.92);">
+                        Sunday, 22 November 2026
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ======================================================================
+             05. OPENING STATEMENT
+             ====================================================================== -->
+        <section class="ivory-canvas">
+            <div class="section-container" style="padding-bottom: 3rem; text-align: center;">
+                <div class="reveal-item" style="max-width: 38rem; margin: 0 auto;">
+                    <div class="gold-divider-ornament">
+                        <span class="line"></span>
+                        <span class="diamond"></span>
+                        <span class="line"></span>
+                    </div>
+
+                    <p id="opening-salam" class="font-serif" style="font-style: italic; font-size: clamp(1.5rem, 3.8vw, 2.05rem); color: var(--color-primary); margin-bottom: 1.15rem; line-height: 1.35;">
+                        Assalamu'alaikum warahmatullahi wabarakatuh.
+                    </p>
+
+                    <p id="opening-message" style="font-size: 0.925rem; color: var(--color-text); opacity: 0.85; line-height: 1.9;">
+                        Tanpa mengurangi rasa hormat, kami bermaksud mengundang Bapak/Ibu/Saudara/i untuk menghadiri acara pernikahan kami.
+                    </p>
+
+                    <div class="gold-divider-ornament" style="margin-top: 2rem;">
+                        <span class="line"></span>
+                        <span class="diamond"></span>
+                        <span class="line"></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================================================================
+             06. THE BRIDE & THE GROOM
+             ====================================================================== -->
+        <section id="sec-couple" class="ivory-canvas">
+            <div class="section-container" style="padding-top: 2.5rem;">
+                <div class="reveal-item" style="text-align: center;">
+                    <p class="editorial-kicker" style="color: var(--color-soft-gold); margin-bottom: 0.5rem;">
+                        THE COUPLE
+                    </p>
+                    <h2 class="font-serif" style="font-size: clamp(2rem, 5vw, 3rem); font-weight: 500; color: var(--color-primary); letter-spacing: 0.04em;">
+                        THE BRIDE &amp; THE GROOM
+                    </h2>
+                    <div class="gold-hairline" style="margin-top: 1rem;"></div>
+                </div>
+
+                <div class="couple-grid">
+                    <!-- Mempelai Wanita -->
+                    <article class="couple-editorial-panel reveal-item delay-100">
+                        <p class="editorial-kicker" style="color: var(--color-soft-gold);">THE BRIDE</p>
+                        <h3 id="bride-full-name" class="couple-person-name">Ine Febrina Tauri</h3>
+                        <div class="gold-hairline" style="margin-bottom: 1.25rem;"></div>
+                        <p style="font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-soft-gold); margin-bottom: 0.35rem;">
+                            Putri dari:
+                        </p>
+                        <p id="bride-parents-text" style="font-size: 0.925rem; color: var(--color-text); line-height: 1.7;">
+                            Bapak Taufik Hidayat<br>&amp; Ibu Hendriana
+                        </p>
+                    </article>
+
+                    <!-- Ornamen Pemisah "&" -->
+                    <div class="reveal-item delay-200" style="text-align: center; padding: 0.25rem 0;">
+                        <span class="font-serif" style="font-style: italic; font-size: 3rem; color: var(--color-soft-gold); line-height: 1;">
+                            &amp;
+                        </span>
+                    </div>
+
+                    <!-- Mempelai Pria -->
+                    <article class="couple-editorial-panel reveal-item delay-300">
+                        <p class="editorial-kicker" style="color: var(--color-soft-gold);">THE GROOM</p>
+                        <h3 id="groom-full-name" class="couple-person-name">Raihan Rasyid</h3>
+                        <div class="gold-hairline" style="margin-bottom: 1.25rem;"></div>
+                        <p style="font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-soft-gold); margin-bottom: 0.35rem;">
+                            Putra dari:
+                        </p>
+                        <p id="groom-parents-text" style="font-size: 0.925rem; color: var(--color-text); line-height: 1.7;">
+                            Alm. Bapak Satirih<br>&amp; Ibu Munawaroh
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================================================================
+             07. COUNTDOWN — SAVE THE DATE (DEEP ESPRESSO)
+             ====================================================================== -->
+        <section id="sec-countdown" class="countdown-section">
+            <div class="reveal-item" style="max-width: 44rem; margin: 0 auto;">
+                <p class="editorial-kicker" style="color: var(--color-accent); margin-bottom: 0.65rem;">
+                    SAVE THE DATE
+                </p>
+                <h2 class="font-serif" style="font-size: clamp(1.85rem, 4.8vw, 2.85rem); font-weight: 500; letter-spacing: 0.04em; line-height: 1.2; color: var(--color-background);">
+                    COUNTING DOWN TO OUR SPECIAL DAY
+                </h2>
+                <div class="gold-divider-ornament">
+                    <span class="line"></span>
+                    <span class="diamond"></span>
+                    <span class="line"></span>
+                </div>
+                <p id="countdown-date-display" class="editorial-kicker" style="color: rgba(247, 242, 232, 0.88);">
+                    22 NOVEMBER 2026
+                </p>
+
+                <!-- Kotak Angka Real-Time WIB -->
+                <div id="countdown-boxes" class="countdown-boxes">
+                    <div class="countdown-item">
+                        <span id="cd-days" class="countdown-number">00</span>
+                        <span class="countdown-label">DAYS</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="cd-hours" class="countdown-number">00</span>
+                        <span class="countdown-label">HOURS</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="cd-minutes" class="countdown-number">00</span>
+                        <span class="countdown-label">MINUTES</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="cd-seconds" class="countdown-number">00</span>
+                        <span class="countdown-label">SECONDS</span>
+                    </div>
+                </div>
+
+                <!-- Pesan Saat Tanggal Acara Terlewati -->
+                <div id="countdown-arrived" style="display: none; margin-top: 2.5rem; padding: 1.5rem; border: 1px solid rgba(220, 198, 160, 0.38);">
+                    <p class="font-serif" style="font-size: clamp(1.4rem, 3.6vw, 1.9rem); letter-spacing: 0.06em; color: var(--color-accent);">
+                        OUR SPECIAL DAY HAS ARRIVED.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================================================================
+             08. WEDDING EVENT — TIME & PLACE
+             ====================================================================== -->
+        <section id="sec-event" class="ivory-canvas">
+            <div class="section-container" style="padding-bottom: 3rem;">
+                <div class="reveal-item" style="text-align: center;">
+                    <p class="editorial-kicker" style="color: var(--color-soft-gold); margin-bottom: 0.5rem;">
+                        TIME &amp; PLACE
+                    </p>
+                    <h2 class="font-serif" style="font-size: clamp(2rem, 5vw, 3rem); font-weight: 500; color: var(--color-primary); letter-spacing: 0.04em;">
+                        THE WEDDING DAY
+                    </h2>
+                    <div class="gold-hairline" style="margin-top: 1rem;"></div>
+                </div>
+
+                <div class="event-editorial-card reveal-item delay-100">
+                    <div class="event-details-grid">
+                        
+                        <!-- Hari/Tanggal -->
+                        <div>
+                            <div class="event-icon-ring">
+                                <i data-lucide="calendar" style="width: 18px; height: 18px;"></i>
+                            </div>
+                            <p class="editorial-kicker" style="font-size: 0.625rem; color: var(--color-soft-gold); margin-bottom: 0.45rem;">
+                                HARI / TANGGAL
+                            </p>
+                            <p id="event-display-date" class="font-serif" style="font-size: 1.35rem; font-weight: 600; color: var(--color-primary); line-height: 1.3;">
+                                Minggu, 22 November 2026
+                            </p>
+                        </div>
+
+                        <!-- Waktu -->
+                        <div>
+                            <div class="event-icon-ring">
+                                <i data-lucide="clock" style="width: 18px; height: 18px;"></i>
+                            </div>
+                            <p class="editorial-kicker" style="font-size: 0.625rem; color: var(--color-soft-gold); margin-bottom: 0.45rem;">
+                                WAKTU
+                            </p>
+                            <p id="event-time-range" class="font-serif" style="font-size: 1.35rem; font-weight: 600; color: var(--color-primary); line-height: 1.3;">
+                                08.00 – 17.00 WIB
+                            </p>
+                        </div>
+
+                        <!-- Lokasi & Alamat -->
+                        <div>
+                            <div class="event-icon-ring">
+                                <i data-lucide="map-pin" style="width: 18px; height: 18px;"></i>
+                            </div>
+                            <p class="editorial-kicker" style="font-size: 0.625rem; color: var(--color-soft-gold); margin-bottom: 0.45rem;">
+                                LOKASI
+                            </p>
+                            <p id="event-venue-name" class="font-serif" style="font-size: 1.4rem; font-weight: 600; color: var(--color-primary); line-height: 1.25;">
+                                Aira
+                            </p>
+                            <p id="event-venue-address" style="font-size: 0.82rem; color: var(--color-text); opacity: 0.82; margin-top: 0.35rem; line-height: 1.6;">
+                                RT 03 RW 16<br>Jl. Batas Pradana Nomor 17
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <!-- Tombol Aksi: VIEW LOCATION & ADD TO CALENDAR -->
+                    <div class="event-actions">
+                        <a id="btn-view-location" href="#" target="_blank" rel="noopener noreferrer" class="btn-burgundy">
+                            <i data-lucide="map-pin" style="width: 15px; height: 15px;"></i>
+                            <span>VIEW LOCATION</span>
+                        </a>
+
+                        <button id="btn-add-calendar" type="button" class="btn-outline-gold">
+                            <i data-lucide="calendar-plus" style="width: 15px; height: 15px;"></i>
+                            <span>ADD TO CALENDAR</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================================================================
+             09. WEDDING MESSAGE
+             ====================================================================== -->
+        <section class="message-section">
+            <div class="message-quote-box reveal-item">
+                <p class="font-serif" style="font-style: italic; font-size: clamp(1.25rem, 3.2vw, 1.65rem); color: var(--color-primary); line-height: 1.75;">
+                    "Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu kepada kami."
+                </p>
+            </div>
+        </section>
+
+        <!-- ======================================================================
+             10. CLOSING SECTION (DEEP ESPRESSO + CHAMPAGNE SAND PARTICLES)
+             ====================================================================== -->
+        <footer class="closing-section">
+            <canvas id="closing-particles" class="closing-particle-canvas" aria-hidden="true"></canvas>
+
+            <div class="closing-content reveal-item">
+                <p class="editorial-kicker" style="color: var(--color-accent); letter-spacing: 0.28em; line-height: 1.8;">
+                    THANK YOU FOR BEING PART OF OUR SPECIAL DAY.
+                </p>
+
+                <div class="gold-divider-ornament">
+                    <span class="line"></span>
+                    <span class="diamond"></span>
+                    <span class="line"></span>
+                </div>
+
+                <p id="closing-salam" class="font-serif" style="font-style: italic; font-size: clamp(1.35rem, 3.5vw, 1.85rem); color: var(--color-background); margin-bottom: 1.75rem;">
+                    Wassalamu'alaikum warahmatullahi wabarakatuh.
+                </p>
+
+                <p style="font-size: 0.8rem; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(247, 242, 232, 0.75); margin-bottom: 0.5rem;">
+                    With Love,
+                </p>
+
+                <p id="closing-couple-names" class="font-serif" style="font-size: clamp(2.25rem, 6vw, 3.35rem); font-weight: 500; letter-spacing: 0.08em; color: var(--color-accent); line-height: 1.15;">
+                    INE &amp; RAIHAN
+                </p>
+
+                <p id="closing-date-text" class="editorial-kicker" style="color: rgba(247, 242, 232, 0.82); margin-top: 1.25rem;">
+                    22 NOVEMBER 2026
+                </p>
+            </div>
+        </footer>
+
+    </main>
+
+    <!-- ==========================================================================
+         11. FIXED BOTTOM NAVIGATION (ICON-ONLY — ZERO TEXT LABELS)
+         ========================================================================== -->
+    <nav id="bottom-nav" class="bottom-nav-wrap" aria-label="Navigasi Undangan">
+        <button type="button" class="nav-icon-item is-active" data-target="sec-hero" aria-label="Home">
+            <i data-lucide="home" style="width: 20px; height: 20px;"></i>
+        </button>
+
+        <button type="button" class="nav-icon-item" data-target="sec-couple" aria-label="Couple">
+            <i data-lucide="users" style="width: 20px; height: 20px;"></i>
+        </button>
+
+        <button type="button" class="nav-icon-item" data-target="sec-countdown" aria-label="Countdown">
+            <i data-lucide="calendar" style="width: 20px; height: 20px;"></i>
+        </button>
+
+        <button type="button" class="nav-icon-item" data-target="sec-event" aria-label="Location">
+            <i data-lucide="map-pin" style="width: 20px; height: 20px;"></i>
+        </button>
+
+        <button id="nav-music-btn" type="button" class="nav-icon-item" aria-label="Toggle Music">
+            <i data-lucide="music" style="width: 20px; height: 20px;"></i>
+        </button>
+    </nav>
+
+    <!-- Toast Notification -->
+    <div id="editorial-toast" class="editorial-toast" role="status" aria-live="polite"></div>
+
+    <!-- ==========================================================================
+         APPLICATION ENGINE (DATA BINDING, PARTICLES, COUNTDOWN, MUSIC, NAV)
+         ========================================================================== -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            applyThemeVariables();
+            renderWeddingContent();
+            applyGuestNameFromURL();
+
+            if (window.lucide) {
+                lucide.createIcons();
+            }
+
+            if (weddingData.settings.enableParticles) {
+                initCinematicParticles("cover-particles", 32);
+                initCinematicParticles("closing-particles", 26);
+            }
+
+            if (weddingData.settings.enableCountdown) {
+                initWIBCountdown();
+            } else {
+                const cdSec = document.getElementById("sec-countdown");
+                if (cdSec) cdSec.style.display = "none";
+            }
+
+            initCoverInteraction();
+            initBottomNavigation();
+            initScrollAnimations();
+        });
+
+        /* --------------------------------------------------------------------------
+           1. APPLY DYNAMIC THEME COLORS FROM weddingData.theme
+           -------------------------------------------------------------------------- */
+        function applyThemeVariables() {
+            const t = weddingData.theme || {};
+            const root = document.documentElement;
+            if (t.primary) root.style.setProperty("--color-primary", t.primary);
+            if (t.secondary) root.style.setProperty("--color-secondary", t.secondary);
+            if (t.accent) root.style.setProperty("--color-accent", t.accent);
+            if (t.background) root.style.setProperty("--color-background", t.background);
+            if (t.text) root.style.setProperty("--color-text", t.text);
+        }
+
+        /* --------------------------------------------------------------------------
+           2. RENDER ALL CONTENT FROM weddingData
+           -------------------------------------------------------------------------- */
+        function renderWeddingContent() {
+            const { bride, groom, event, invitation, media } = weddingData;
+
+            const brideFirst = extractFirstName(bride.name);
+            const groomFirst = extractFirstName(groom.name);
+            const uppercaseDate = formatLongDateUppercase(event.date);
+            const englishSundayDate = formatEnglishEditorialDate(event.date);
+
+            document.title = `The Wedding of ${bride.name} & ${groom.name} — ${uppercaseDate}`;
+
+            // Cover
+            setText("cover-bride-name", bride.name.toUpperCase());
+            setText("cover-groom-name", groom.name.toUpperCase());
+            setText("cover-date-text", uppercaseDate);
+            setText("cover-guest-name", invitation.guestName || "Tamu Undangan");
+
+            // Hero
+            setText("hero-bride-name", bride.name);
+            setText("hero-groom-name", groom.name);
+            setText("hero-date-label", englishSundayDate);
+            const heroImg = document.getElementById("hero-couple-img");
+            if (heroImg && media.couplePhoto) {
+                heroImg.src = media.couplePhoto;
+                heroImg.alt = `Foto Pernikahan ${bride.name} & ${groom.name}`;
+            }
+
+            // Opening Statement
+            setText("opening-salam", invitation.opening);
+            setText("opening-message", invitation.message);
+
+            // Bride & Groom
+            setText("bride-full-name", bride.name);
+            setHTML("bride-parents-text", `${formatFatherName(bride.father)}<br>&amp; ${formatMotherName(bride.mother)}`);
+
+            setText("groom-full-name", groom.name);
+            setHTML("groom-parents-text", `${formatFatherName(groom.father)}<br>&amp; ${formatMotherName(groom.mother)}`);
+
+            // Countdown
+            setText("countdown-date-display", uppercaseDate);
+
+            // Wedding Event
+            setText("event-display-date", event.displayDate);
+            setText("event-time-range", formatTimeRangeWIB(event.startTime, event.endTime));
+            setText("event-venue-name", event.venue);
+            setHTML("event-venue-address", formatAddressLines(event.address));
+
+            // View Location (Google Maps)
+            const mapsBtn = document.getElementById("btn-view-location");
+            if (mapsBtn) {
+                const searchQuery = encodeURIComponent(`${event.venue}, ${event.address}`);
+                mapsBtn.href = (event.mapsUrl && event.mapsUrl.trim() !== "")
+                    ? event.mapsUrl
+                    : `https://www.google.com/maps/search/?api=1&query=${searchQuery}`;
+            }
+
+            // Add to Calendar
+            const calBtn = document.getElementById("btn-add-calendar");
+            if (calBtn) {
+                calBtn.addEventListener("click", generateAndDownloadICS);
+            }
+
+            // Closing
+            setText("closing-salam", invitation.closing);
+            setText("closing-couple-names", `${brideFirst.toUpperCase()} & ${groomFirst.toUpperCase()}`);
+            setText("closing-date-text", uppercaseDate);
+
+            // Music toggle visibility if disabled in settings
+            const musicNavBtn = document.getElementById("nav-music-btn");
+            if (musicNavBtn && !weddingData.settings.enableMusic) {
+                musicNavBtn.style.display = "none";
+            }
+        }
+
+        function setText(id, val) {
+            const el = document.getElementById(id);
+            if (el && val !== undefined && val !== null) el.textContent = val;
+        }
+
+        function setHTML(id, html) {
+            const el = document.getElementById(id);
+            if (el && html !== undefined && html !== null) el.innerHTML = html;
+        }
+
+        function extractFirstName(fullName) {
+            return String(fullName || "").trim().split(/\s+/)[0] || "";
+        }
+
+        function formatFatherName(raw) {
+            const clean = String(raw || "").trim();
+            if (/^alm\.\s*bapak/i.test(clean) || /^bapak/i.test(clean)) return escapeHTML(clean);
+            if (/^alm\./i.test(clean)) {
+                return "Alm. Bapak " + escapeHTML(clean.replace(/^alm\.\s*/i, ""));
+            }
+            return "Bapak " + escapeHTML(clean);
+        }
+
+        function formatMotherName(raw) {
+            const clean = String(raw || "").trim();
+            if (/^almh?\.\s*ibu/i.test(clean) || /^ibu/i.test(clean)) return escapeHTML(clean);
+            if (/^almh?\./i.test(clean)) {
+                return "Almh. Ibu " + escapeHTML(clean.replace(/^almh?\.\s*/i, ""));
+            }
+            return "Ibu " + escapeHTML(clean);
+        }
+
+        function formatTimeRangeWIB(start, end) {
+            const s = String(start || "08:00").replace(":", ".");
+            const e = String(end || "17:00").replace(":", ".");
+            return `${s} – ${e} WIB`;
+        }
+
+        function formatAddressLines(addr) {
+            const safe = escapeHTML(addr || "");
+            const idx = safe.indexOf(",");
+            if (idx !== -1) {
+                return `${safe.slice(0, idx).trim()}<br>${safe.slice(idx + 1).trim()}`;
+            }
+            return safe;
+        }
+
+        function formatLongDateUppercase(isoDate) {
+            const months = [
+                "JANUARY", "FEBRUARY", "MARCH", "APRIL", "MAY", "JUNE",
+                "JULY", "AUGUST", "SEPTEMBER", "OCTOBER", "NOVEMBER", "DECEMBER"
+            ];
+            const parts = String(isoDate || "2026-11-22").split("-");
+            if (parts.length !== 3) return isoDate;
+            const year = parts[0];
+            const monthName = months[parseInt(parts[1], 10) - 1] || "NOVEMBER";
+            const day = parseInt(parts[2], 10);
+            return `${day} ${monthName} ${year}`;
+        }
+
+        function formatEnglishEditorialDate(isoDate) {
+            const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+            const months = [
+                "January", "February", "March", "April", "May", "June",
+                "July", "August", "September", "October", "November", "December"
+            ];
+            const dt = new Date(`${isoDate}T08:00:00+07:00`);
+            if (isNaN(dt.getTime())) return "Sunday, 22 November 2026";
+            return `${days[dt.getUTCDay()]}, ${dt.getUTCDate()} ${months[dt.getUTCMonth()]} ${dt.getUTCFullYear()}`;
+        }
+
+        function escapeHTML(str) {
+            return String(str)
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+        }
+
+        /* --------------------------------------------------------------------------
+           3. GUEST NAME VIA URL PARAMETER (?to=Nama%20Tamu)
+           -------------------------------------------------------------------------- */
+        function applyGuestNameFromURL() {
+            const params = new URLSearchParams(window.location.search);
+            const guestParam = params.get("to") || params.get("guest");
+            if (guestParam && guestParam.trim().length > 0) {
+                const decoded = guestParam.replace(/\+/g, " ").trim().slice(0, 80);
+                setText("cover-guest-name", decoded);
+            }
+        }
+
+        /* --------------------------------------------------------------------------
+           4. CINEMATIC CHAMPAGNE SAND LIGHT PARTICLE ANIMATION (CANVAS + RAF)
+           -------------------------------------------------------------------------- */
+        function initCinematicParticles(canvasId, particleCount) {
+            if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+            const canvas = document.getElementById(canvasId);
+            if (!canvas) return;
+            const ctx = canvas.getContext("2d");
+            if (!ctx) return;
+
+            const isMobile = window.innerWidth < 640;
+            const count = isMobile ? Math.round(particleCount * 0.65) : particleCount;
+
+            let width = 0;
+            let height = 0;
+            let particles = [];
+            let animId = null;
+            let isVisible = true;
+
+            function resizeCanvas() {
+                const rect = canvas.parentElement.getBoundingClientRect();
+                const dpr = Math.min(window.devicePixelRatio || 1, 2);
+                width = rect.width;
+                height = rect.height;
+                canvas.width = width * dpr;
+                canvas.height = height * dpr;
+                ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+            }
+
+            function createParticle(randomY = true) {
+                return {
+                    x: Math.random() * width,
+                    y: randomY ? Math.random() * height : height + Math.random() * 25,
+                    radius: 1.1 + Math.random() * 2.4,
+                    speedY: 0.14 + Math.random() * 0.28,
+                    driftAmp: 0.15 + Math.random() * 0.35,
+                    driftPhase: Math.random() * Math.PI * 2,
+                    driftSpeed: 0.005 + Math.random() * 0.009,
+                    alphaPhase: Math.random() * Math.PI * 2,
+                    alphaSpeed: 0.008 + Math.random() * 0.014,
+                    maxAlpha: 0.28 + Math.random() * 0.45
+                };
+            }
+
+            resizeCanvas();
+            particles = Array.from({ length: count }, () => createParticle(true));
+
+            function renderLoop() {
+                if (!isVisible || document.hidden) {
+                    animId = requestAnimationFrame(renderLoop);
+                    return;
+                }
+
+                ctx.clearRect(0, 0, width, height);
+
+                for (let i = 0; i < particles.length; i++) {
+                    const p = particles[i];
+                    p.y -= p.speedY;
+                    p.driftPhase += p.driftSpeed;
+                    p.alphaPhase += p.alphaSpeed;
+                    p.x += Math.sin(p.driftPhase) * p.driftAmp;
+
+                    // Soft breathing glow opacity
+                    const currentAlpha = ((Math.sin(p.alphaPhase) + 1) * 0.5) * p.maxAlpha;
+
+                    if (p.y < -15) {
+                        particles[i] = createParticle(false);
+                        continue;
+                    }
+
+                    // Soft radial champagne sand bokeh glow
+                    const glowRadius = p.radius * 3.4;
+                    const grad = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, glowRadius);
+                    grad.addColorStop(0, `rgba(247, 242, 232, ${currentAlpha.toFixed(3)})`);
+                    grad.addColorStop(0.45, `rgba(220, 198, 160, ${(currentAlpha * 0.55).toFixed(3)})`);
+                    grad.addColorStop(1, "rgba(220, 198, 160, 0)");
+
+                    ctx.beginPath();
+                    ctx.fillStyle = grad;
+                    ctx.arc(p.x, p.y, glowRadius, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+
+                animId = requestAnimationFrame(renderLoop);
+            }
+
+            // Pause rendering when section is offscreen for battery & mobile performance
+            if ("IntersectionObserver" in window) {
+                const io = new IntersectionObserver((entries) => {
+                    entries.forEach((entry) => {
+                        isVisible = entry.isIntersecting;
+                    });
+                }, { threshold: 0.01 });
+                io.observe(canvas.parentElement);
+            }
+
+            window.addEventListener("resize", resizeCanvas, { passive: true });
+            renderLoop();
+        }
+
+        /* --------------------------------------------------------------------------
+           5. REAL-TIME COUNTDOWN BASED ON WIB (UTC+7)
+           -------------------------------------------------------------------------- */
+        function initWIBCountdown() {
+            const { date, startTime } = weddingData.event;
+            const timePart = (startTime && startTime.includes(":")) ? startTime : "08:00";
+            const targetTime = new Date(`${date}T${timePart}:00+07:00`).getTime();
+
+            const daysEl = document.getElementById("cd-days");
+            const hoursEl = document.getElementById("cd-hours");
+            const minsEl = document.getElementById("cd-minutes");
+            const secsEl = document.getElementById("cd-seconds");
+            const boxesEl = document.getElementById("countdown-boxes");
+            const arrivedEl = document.getElementById("countdown-arrived");
+
+            function tick() {
+                const now = Date.now();
+                const diff = targetTime - now;
+
+                if (isNaN(targetTime) || diff <= 0) {
+                    if (boxesEl) boxesEl.style.display = "none";
+                    if (arrivedEl) arrivedEl.style.display = "block";
+                    return true;
+                }
+
+                const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+                const m = Math.floor((diff / 1000 / 60) % 60);
+                const s = Math.floor((diff / 1000) % 60);
+
+                if (daysEl) daysEl.textContent = String(d).padStart(2, "0");
+                if (hoursEl) hoursEl.textContent = String(h).padStart(2, "0");
+                if (minsEl) minsEl.textContent = String(m).padStart(2, "0");
+                if (secsEl) secsEl.textContent = String(s).padStart(2, "0");
+                return false;
+            }
+
+            if (!tick()) {
+                const interval = setInterval(() => {
+                    if (tick()) clearInterval(interval);
+                }, 1000);
+            }
+        }
+
+        /* --------------------------------------------------------------------------
+           6. OPENING COVER TRANSITION & BACKGROUND MUSIC CONTROLLER
+           -------------------------------------------------------------------------- */
+        let isMusicActive = false;
+        let synthFallbackInterval = null;
+        let webAudioCtx = null;
+
+        function initCoverInteraction() {
+            const cover = document.getElementById("opening-cover");
+            const openBtn = document.getElementById("btn-open-invitation");
+            const bottomNav = document.getElementById("bottom-nav");
+            const audioEl = document.getElementById("wedding-audio");
+            const navMusicBtn = document.getElementById("nav-music-btn");
+
+            if (audioEl && weddingData.media.music) {
+                audioEl.src = weddingData.media.music;
+            }
+
+            openBtn.addEventListener("click", () => {
+                cover.classList.add("is-hidden");
+                document.body.classList.remove("is-locked");
+
+                if (bottomNav) {
+                    bottomNav.classList.add("is-visible");
+                }
+
+                // Trigger hero reveal items smoothly
+                document.querySelectorAll("#sec-hero .reveal-item").forEach((el) => {
+                    el.classList.add("in-view");
+                });
+
+                // Start music ONLY after explicit user click
+                if (weddingData.settings.enableMusic) {
+                    startMusic();
+                }
+            });
+
+            if (navMusicBtn) {
+                navMusicBtn.addEventListener("click", () => {
+                    if (isMusicActive) {
+                        stopMusic();
+                        showToast("Musik latar dijeda");
+                    } else {
+                        startMusic();
+                        showToast("Musik latar diputar");
+                    }
+                });
+            }
+        }
+
+        function startMusic() {
+            const audioEl = document.getElementById("wedding-audio");
+            const navMusicBtn = document.getElementById("nav-music-btn");
+
+            isMusicActive = true;
+            if (navMusicBtn) navMusicBtn.classList.add("nav-music-playing");
+
+            if (audioEl && audioEl.src) {
+                const promise = audioEl.play();
+                if (promise !== undefined) {
+                    promise.catch(() => {
+                        startRomanticAmbientFallback();
+                    });
+                }
+            } else {
+                startRomanticAmbientFallback();
+            }
+        }
+
+        function stopMusic() {
+            const audioEl = document.getElementById("wedding-audio");
+            const navMusicBtn = document.getElementById("nav-music-btn");
+
+            isMusicActive = false;
+            if (navMusicBtn) navMusicBtn.classList.remove("nav-music-playing");
+
+            if (audioEl && !audioEl.paused) {
+                audioEl.pause();
+            }
+            stopRomanticAmbientFallback();
+        }
+
+        // Gentle acoustic chord ambience if local MP3 file has not been uploaded yet
+        function startRomanticAmbientFallback() {
+            if (synthFallbackInterval) return;
+            try {
+                const AudioContext = window.AudioContext || window.webkitAudioContext;
+                if (!webAudioCtx) webAudioCtx = new AudioContext();
+                if (webAudioCtx.state === "suspended") webAudioCtx.resume();
+
+                const progression = [
+                    [293.66, 369.99, 440.00, 554.37], // Dmaj7
+                    [246.94, 369.99, 440.00, 493.88], // Bm7
+                    [196.00, 293.66, 369.99, 440.00], // Gmaj7
+                    [220.00, 329.63, 440.00, 493.88]  // Asus2
+                ];
+                let step = 0;
+
+                const playPad = () => {
+                    if (!isMusicActive || !webAudioCtx) return;
+                    const notes = progression[step % progression.length];
+                    const now = webAudioCtx.currentTime;
+
+                    notes.forEach((freq, idx) => {
+                        const osc = webAudioCtx.createOscillator();
+                        const gain = webAudioCtx.createGain();
+                        osc.type = "sine";
+                        osc.frequency.setValueAtTime(freq, now + idx * 0.25);
+
+                        gain.gain.setValueAtTime(0.0001, now + idx * 0.25);
+                        gain.gain.exponentialRampToValueAtTime(0.015, now + idx * 0.25 + 0.5);
+                        gain.gain.exponentialRampToValueAtTime(0.0001, now + idx * 0.25 + 3.8);
+
+                        osc.connect(gain);
+                        gain.connect(webAudioCtx.destination);
+                        osc.start(now + idx * 0.25);
+                        osc.stop(now + idx * 0.25 + 3.9);
+                    });
+                    step++;
+                };
+
+                playPad();
+                synthFallbackInterval = setInterval(playPad, 4000);
+            } catch (e) {
+                // Ignore if audio context restricted
+            }
+        }
+
+        function stopRomanticAmbientFallback() {
+            if (synthFallbackInterval) {
+                clearInterval(synthFallbackInterval);
+                synthFallbackInterval = null;
+            }
+        }
+
+        /* --------------------------------------------------------------------------
+           7. FIXED BOTTOM NAVIGATION (ICON-ONLY & ACTIVE SPY)
+           -------------------------------------------------------------------------- */
+        function initBottomNavigation() {
+            const sectionButtons = document.querySelectorAll("#bottom-nav .nav-icon-item[data-target]");
+
+            sectionButtons.forEach((btn) => {
+                btn.addEventListener("click", () => {
+                    const targetId = btn.getAttribute("data-target");
+                    const targetEl = document.getElementById(targetId);
+                    if (targetEl) {
+                        setActiveNavIcon(targetId);
+                        targetEl.scrollIntoView({ behavior: "smooth", block: "start" });
+                    }
+                });
+            });
+
+            const observedIds = ["sec-hero", "sec-couple", "sec-countdown", "sec-event"];
+            if ("IntersectionObserver" in window) {
+                const navObserver = new IntersectionObserver((entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            setActiveNavIcon(entry.target.id);
+                        }
+                    });
+                }, {
+                    rootMargin: "-35% 0px -45% 0px",
+                    threshold: 0.05
+                });
+
+                observedIds.forEach((id) => {
+                    const sec = document.getElementById(id);
+                    if (sec) navObserver.observe(sec);
+                });
+            }
+        }
+
+        function setActiveNavIcon(targetId) {
+            const sectionButtons = document.querySelectorAll("#bottom-nav .nav-icon-item[data-target]");
+            sectionButtons.forEach((btn) => {
+                if (btn.getAttribute("data-target") === targetId) {
+                    btn.classList.add("is-active");
+                } else {
+                    btn.classList.remove("is-active");
+                }
+            });
+        }
+
+        /* --------------------------------------------------------------------------
+           8. SCROLL REVEAL TYPOGRAPHY & SECTIONS
+           -------------------------------------------------------------------------- */
+        function initScrollAnimations() {
+            const revealItems = document.querySelectorAll(".reveal-item");
+            if (!("IntersectionObserver" in window)) {
+                revealItems.forEach((el) => el.classList.add("in-view"));
+                return;
+            }
+
+            const io = new IntersectionObserver((entries, observer) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("in-view");
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.12,
+                rootMargin: "0px 0px -30px 0px"
+            });
+
+            revealItems.forEach((el) => io.observe(el));
+        }
+
+        /* --------------------------------------------------------------------------
+           9. ADD TO CALENDAR (.ICS LOCAL WIB EVENT)
+           -------------------------------------------------------------------------- */
+        function generateAndDownloadICS() {
+            const { bride, groom, event } = weddingData;
+            const cleanDate = String(event.date || "2026-11-22").replace(/-/g, "");
+            const cleanStart = String(event.startTime || "08:00").replace(":", "") + "00";
+            const cleanEnd = String(event.endTime || "17:00").replace(":", "") + "00";
+            const tz = event.timezone || "Asia/Jakarta";
+
+            const summary = `The Wedding of ${bride.name} & ${groom.name}`;
+            const location = `${event.venue}, ${event.address}`;
+            const description = `Undangan Pernikahan ${bride.name} & ${groom.name} — ${event.displayDate} (${event.startTime} - ${event.endTime} WIB).`;
+
+            const icsLines = [
+                "BEGIN:VCALENDAR",
+                "VERSION:2.0",
+                "PRODID:-//Eternal Romance Wedding Invitation//ID",
+                "CALSCALE:GREGORIAN",
+                "BEGIN:VEVENT",
+                `DTSTART;TZID=${tz}:${cleanDate}T${cleanStart}`,
+                `DTEND;TZID=${tz}:${cleanDate}T${cleanEnd}`,
+                `SUMMARY:${summary}`,
+                `LOCATION:${location}`,
+                `DESCRIPTION:${description}`,
+                "END:VEVENT",
+                "END:VCALENDAR"
+            ].join("\r\n");
+
+            const blob = new Blob([icsLines], { type: "text/calendar;charset=utf-8" });
+            const url = URL.createObjectURL(blob);
+            const anchor = document.createElement("a");
+            anchor.href = url;
+            anchor.download = `Wedding-${extractFirstName(bride.name)}-${extractFirstName(groom.name)}.ics`;
+            document.body.appendChild(anchor);
+            anchor.click();
+            document.body.removeChild(anchor);
+            URL.revokeObjectURL(url);
+
+            showToast("Undangan berhasil ditambahkan ke kalender");
+        }
+
+        let toastTimer = null;
+        function showToast(msg) {
+            const el = document.getElementById("editorial-toast");
+            if (!el) return;
+            el.textContent = msg;
+            el.classList.add("is-shown");
+
+            if (toastTimer) clearTimeout(toastTimer);
+            toastTimer = setTimeout(() => {
+                el.classList.remove("is-shown");
+            }, 2800);
+        }
+    </script>
+</body>
+</html>
